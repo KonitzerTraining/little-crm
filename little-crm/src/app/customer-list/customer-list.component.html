@@ -1,0 +1,59 @@
+
+
+
+<app-customer-new (creation)="onCreation($event)" *ngIf="inCreateMode"></app-customer-new>
+
+
+<div class="row mt-3">
+  <div class="col-12">
+  <h1>Customers</h1>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="!inCreateMode">
+  <div class="col-12">
+    <button class="btn btn-outline-secondary" (click)="inCreateMode = true">Create Customer</button>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-12">
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Search word</th>
+        <th>Name</th>
+        <th class="d-none d-xl-table-cell">Adresse</th>
+        <th>Credit</th>
+        <th>Tax included</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let customer of customers" [class.alert-warning]="customer.credit < 1">
+        <td>{{customer.id}}</td>
+        <td  [appTeaser]="'red'" [data]="customer.tag">{{customer.tag}}</td>
+        <td>{{customer.name}}</td>
+        <td class="d-none d-xl-table-cell">
+          {{customer.address.street}}<br>
+          {{customer.address.zip}} {{customer.address.town}}
+          <br>
+          {{customer.address.street}}
+        </td>
+        <td class="text-right">{{customer.credit | number:'1.2-2'}}</td>
+        <td class="text-right">{{customer.credit | tax:1.07 |  number:'1.2-2'}}</td>
+        <td>
+          <button class="btn btn-warning" (click)="delete(customer.id)">Delete</button>
+          &nbsp;
+          <button class="btn btn-info" (click)="edit(customer.id)">Edit</button>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+

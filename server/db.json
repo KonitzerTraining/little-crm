@@ -1,0 +1,43 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "tag": "",
+      "name": "Hans Müller",
+      "address": {
+        "street": "test",
+        "town": "St. Gallen",
+        "country": "CH",
+        "zip": "08349"
+      },
+      "phone": "29348902384",
+      "credit": 30000
+    },
+    {
+      "id": 2,
+      "tag": "migros",
+      "name": "Marcus Konitzer",
+      "address": {
+        "street": "test",
+        "town": "Stuttgart",
+        "country": "CH",
+        "zip": "08349"
+      },
+      "phone": "15209163418",
+      "credit": 0
+    },
+    {
+      "id": 3,
+      "tag": "coop",
+      "name": "Peter Müller",
+      "address": {
+        "street": "test",
+        "town": "St. Moritz",
+        "country": "CH",
+        "zip": "08349"
+      },
+      "phone": "543235234",
+      "credit": 100000
+    }
+  ]
+}

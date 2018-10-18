@@ -1,0 +1,59 @@
+<h2>Template Syntax</h2>
+
+<h3>Interpolation Directive</h3>
+<p>{{ 'text' | uppercase}} mit uppercase-pipe</p>
+<p>{{ 3+3 }}</p>
+<p>{{ interpolD | number:'1.2-2'}}</p>
+
+
+<h3>Attribute Directive</h3>
+<p title="{{'text'}}">Schlecht. Lorem ipsum dolor sit amet.</p>
+<p [title]="'Test'">Gut. Lorem ipsum dolor sit amet.</p>
+<p [title]="interpolD">Gut. Lorem ipsum dolor sit amet.</p>
+<p [attr.data-projektid]="interpolD">Lorem ipsum dolor sit amet.</p>
+<p class="alert" [class.alert-info]="flag">Lorem ipsum dolor sit amet, consectetur.</p>
+<p [ngClass]="{
+  'alert': true,
+  'alert-warning': true
+}">Lorem ipsum dolor sit.</p>
+
+<p [style.color]="'red'">Lorem ipsum dolor sit.</p>
+
+
+
+<h3>Structural Directives</h3>
+<p *ngIf="flag">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aspernatur consequuntur quaerat, quod,
+  tenetur vero
+  voluptatum.</p>
+
+<div [ngSwitch]="status">
+  <div *ngSwitchCase="'admin'">Lorem ipsum dolor sit amet.</div>
+  <div *ngSwitchCase="'guest'">Adipisci iusto maxime perspiciatis reiciendis.</div>
+  <div *ngSwitchDefault>Consequatur fugiat natus perspiciatis sit?</div>
+</div>
+
+<!--
+Kommentar
+-->
+
+<ul>
+  <li [class.alert-info]="o" *ngFor="let item of [2,3,4,23];let i = index; let o = odd">{{i + 1}}.) {{item}}</li>
+</ul>
+
+
+
+<h3>Event Directive</h3>
+
+<button class="btn btn-primary" (click)="click('admin', $event)">Click</button>
+
+<h3>2-way Data Binding</h3>
+<input type="text" [(ngModel)]="name">
+
+<br>{{name}}
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

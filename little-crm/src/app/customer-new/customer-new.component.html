@@ -1,0 +1,62 @@
+<div class="row mt-3">
+  <div class="col-12">
+
+    <h1>Create new Customer</h1>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" [class.is-invalid]="name.invalid && name.touched" required minlength="3" maxlength="255" id="Name" placeholder="" [(ngModel)]="customer.name" #name="ngModel">
+      </div>
+
+
+      <div class="form-group col-md-6">
+        <label for="tag">Tag</label>
+        <input type="text" class="form-control" id="tag" placeholder="e.g. Migros"  [(ngModel)]="customer.tag">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Street">Street</label>
+      <input type="text" class="form-control" id="Street" placeholder="e.g. Im Zeil 34">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity"  [(ngModel)]="customer.address.town">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select id="inputState" class="form-control" [(ngModel)]="customer.address.country">
+          <option selected>Choose...</option>
+          <option value="ch">Switzerland</option>
+          <option value="de">Germany</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label for="phone">Phone</label>
+        <input type="tel" class="form-control" id="phone" placeholder="+411234" [(ngModel)]="customer.phone">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="Credit">Credit</label>
+        <input type="number" class="form-control" id="Credit" [(ngModel)]="customer.credit">
+      </div>
+    </div>
+
+    <button class="btn btn-outline-warning" (click)="cancel()">Cancel</button>&nbsp;
+
+    <button type="submit" class="btn btn-primary" [disabled]="name.invalid" (click)="create()">Create</button>
+
+
+  </div>
+</div>
